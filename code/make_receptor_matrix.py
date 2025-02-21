@@ -9,8 +9,7 @@ from matplotlib.colors import ListedColormap
 from scipy.stats import zscore
 from nilearn.datasets import fetch_atlas_schaefer_2018
 
-path = 'C:/Users/justi/OneDrive - McGill University/MisicLab/proj_receptors/\
-github/hansen_receptors/'
+path = 'C:/Users/Cristina/repos/hansen_receptors/'
 
 scale = 'scale100'
 
@@ -54,7 +53,7 @@ for i in range(len(receptors_csv)):
 receptor_names = np.array(["5HT1a", "5HT1b", "5HT2a", "5HT4", "5HT6", "5HTT", "A4B2",
                            "CB1", "D1", "D2", "DAT", "GABAa", "H3", "M1", "mGluR5",
                            "MOR", "NET", "NMDA", "VAChT"])
-np.save(path+'data/receptor_names_pet.npy', receptor_names)
+# np.save(path+'data/receptor_names_pet.npy', receptor_names)
 
 # make final region x receptor matrix
 
@@ -77,7 +76,7 @@ receptor_data[:, 14] = (zscore(r[:, 16])*22 + zscore(r[:, 17])*28 + zscore(r[:, 
 receptor_data[:, 18] = (zscore(r[:, 22])*3 + zscore(r[:, 23])*4 + zscore(r[:, 24]) + zscore(r[:, 25])) / \
                        (3+4+5+18)
 
-np.savetxt(path+'results/receptor_data_'+scale+'.csv', receptor_data, delimiter=',')
+# np.savetxt(path+'results/receptor_data_'+scale+'.csv', receptor_data, delimiter=',')
 
 
 """
@@ -93,8 +92,8 @@ if scale == 'scale100':
     annot = datasets.fetch_schaefer2018('fsaverage')['100Parcels7Networks']
     for k in range(len(receptor_names)):
         brain = plotting.plot_fsaverage(data=receptor_data[:, k],
-                                        lhannot=annot.lh,
-                                        rhannot=annot.rh,
+                                        lhannot=str(annot.L),
+                                        rhannot=str(annot.R),
                                         colormap='plasma',
                                         views=['lat', 'med'],
                                         data_kws={'representation': "wireframe"})
