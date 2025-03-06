@@ -12,7 +12,7 @@ scale = 'scale100'
 schaefer = fetch_atlas_schaefer_2018(n_rois=100)
 
 path = "../data/PET_nifti_images/"
-outpath = "C:\\Users\\Cristina\\repos\\hansen_receptors\\cga\\data\\PET_parcellated\\"+scale+"\\"
+outpath = "C:/Users/Cristina/repos/hansen_receptors/cga/data/PET_parcellated/"+scale+"/"
 
 receptors_nii = [path+'5HT1a_way_hc36_savli.nii',
                  path+'5HT1a_cumi_hc8_beliveau.nii',

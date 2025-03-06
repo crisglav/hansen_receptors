@@ -56,8 +56,7 @@ def get_reg_r_sq(X, y):
 set-up
 """
 
-path = 'C:/Users/justi/OneDrive - McGill University/MisicLab/proj_receptors/\
-github/hansen_receptors/'
+path = 'C:/Users/Cristina/repos/hansen_receptors/'
 
 # get the parcellation, coordinates, etc
 scale = 'scale100'
@@ -172,7 +171,7 @@ parc = parcellate.Parcellater(schaefer['maps'], 'MNI152')
 ucbj = zscore(np.squeeze(parc.fit_transform(ucbj_surface, 'MNI152', True).T))
 r, p, _ = corr_spin(pc1, ucbj, spins, nspins)
 plt.figure()
-sns.regplot(pc1, ucbj, scatter=False)
+sns.regplot(x=pc1, y=ucbj, scatter=False)
 plt.scatter(pc1, ucbj)
 plt.xlabel('PC1')
 plt.ylabel('synapse density')

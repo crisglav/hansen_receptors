@@ -9,15 +9,19 @@
 7. Install dependencies
 
 **Install dependencies**
-1. Install **Pysurfer** to visualize the inflated brains. In the terminal: `conda install -c conda-forge pysurfer` Note: You can't just install it with pip in windows because it has complex dependencies with other 3d visualization packages (vkt and pyq5t).
-2. Downgrade the packages pyface and traitsui. `conda install -c conda-forge traitsui=7.4.2 pyface=7.4.2`
-3. Check that **mayavi** is working. Run in the python console:
+1. Install **mayavi**. `pip install git+https://github.com/enthought/mayavi.git`
+2. Install **pysurfer**. `pip install git+https://github.com/nipy/PySurfer.git`
+3. Check that mayavi is working. Run in the python console:
 `from mayavi import mlab
 mlab.test_contour3d()
-mlab.show()` I should appear a 3d drawing
-4. Check that pysurfer is working. Run in the python console:
+mlab.show()` It should appear a 3d drawing
+4. Check that pysurfer is working. Run in the python console: (This does not work because I don't have freesurfer)
 `from surfer import Brain
 brain = Brain("fsaverage", "lh", "inflated")
 brain.show_view()`
-5. Install neuromaps from github. Clone the repository. Cd into the repo being in the pysurfer_env and `pip install .`
-6. Install netneurotools from github. Clone the repository. Cd into the repo being in the pysurfer_env and `pip install .`
+5. Install **neuromaps** from github. Clone the repository. Cd into the repo being in the pysurfer_env and `pip install .`
+6. Install **netneurotools** from github (branch 0.2.X). `pip install git+https://github.com/netneurolab/netneurotools.git@0.2.X`
+7. Install seaborn and tqdm. `pip install seaborn tqdm`
+
+# Info
+https://netneurolab.github.io/netneurotools/installation.html
